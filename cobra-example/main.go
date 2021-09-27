@@ -47,6 +47,22 @@ It will have several subcommands and flags.`,
 			return nil
 		},
 	}
+	helloCommand = &cobra.Command {
+		Use: "hello",
+		Short: "hello",
+		Args: func(cmd *cobra.Command, args []string) error {
+			if len(args) < 1 {
+				return errors.New("requires an argument that is 'good'")
+			}
+			if args[0] == "good" {
+				return nil
+			}
+			return fmt.Errorf("invalid argument - was not 'good'")
+		},
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Printf("Hello, World: %v\n", args)
+		},
+	}
 )
 
 func init() {
@@ -57,6 +73,9 @@ func init() {
 	timesCommand.Flags().IntVarP(&times, "times", "t", 1, "number of times to echo to stdout")
 	timesCommand.MarkFlagRequired("times")
 	echoCommand.AddCommand(timesCommand)
+
+	// custom argument validation
+	rootCmd.AddCommand(helloCommand)
 }
 
 func main() {
