@@ -59,3 +59,23 @@ Cobra Project: [github](https://github.com/spf13/cobra) | [generator](https://gi
   # throw error for invalid argument
   go run ./cobra-example/ validargs five
   ```
+
+  ## Examples using Cobra generate
+  ```bash
+  go get github.com/spf13/cobra/cobra
+
+  cobra init --pkg-name github.com/kozigh01/go_yt_DFeury_GolangCobraTutorial/cobra-gen-example cobra-gen-example
+
+  cd cobra-gen-example
+
+  go mod init github.com/kozigh01/go_yt_DFeury_GolangCobraTutorial/cobra-gen-example
+  go mod tidy
+
+  cobra init
+  cobra add config
+  cobra add init -p "configCmd"
+
+  go run main.go
+  go run main.go config -h
+  go run main.go config init -h
+  ```
