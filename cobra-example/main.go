@@ -23,8 +23,10 @@ It will have several subcommands and flags.
 
 Examples:
 # to set flags:
-go run ./cobra-example/ echo something -ps "a string"
+go
+ run ./cobra-example/ echo something -ps "a string"
 `,
+		Version: "v1.1.1",
 		// Run: func(cmd *cobra.Command, args []string) {
 		// 	fmt.Printf("Hello from the root command: persistFlag=%v, localFlag=%v\n", persistRootFlag, localRootFlag)
 		// },
@@ -33,6 +35,7 @@ go run ./cobra-example/ echo something -ps "a string"
 		Use: "echo [strings to echo]",
 		Short: "prints given strings to stdout",
 		Args: cobra.MinimumNArgs(1),
+		SuggestFor: []string{"repeat"},
 		Run: func(cmd *cobra.Command, args []string) {
 			// fmt.Println(args)
 			// p, _ := rootCmd.Flags().GetBool("persistFlag")

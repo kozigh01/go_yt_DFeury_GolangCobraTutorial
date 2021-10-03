@@ -1,7 +1,7 @@
 # Donald Feury: Golang Cobra Tutorial
 
 From youtube: https://www.youtube.com/watch?v=7U12a-TTtfo
-Cobra Project: [github](https://github.com/spf13/cobra)
+Cobra Project: [github](https://github.com/spf13/cobra) | [generator](https://github.com/spf13/cobra/blob/master/cobra/README.md)
 
 ## Examples
 * Root: For boolean flags,set default to false, then pass empty flag to set to true
@@ -9,6 +9,8 @@ Cobra Project: [github](https://github.com/spf13/cobra)
   ```bash
   go run ./cobra-example/main.go
   go run ./cobra-example/main.go --help
+
+  go run ./cobra-example/main.go --version
 
   go run ./cobra-example/main.go -p -l
   go run ./cobra-example/main.go -pl
@@ -37,6 +39,9 @@ Cobra Project: [github](https://github.com/spf13/cobra)
 
   # to see returned custom error
   go run ./cobra-example/  echo times abcd efg --persistFlag=true -t 4
+
+  # custom suggestion
+  go run ./cobra-example/main.go repeat
   ```
 
 * Hello
